@@ -24,7 +24,7 @@ ol li {margin:13px 0; padding:0 0 0 22px; position:relative}
 li ol {margin:0}
 ol li::before {content:counter(point)'.'; counter-increment:point 1; position:absolute; left:0; top:0; color:#052d63; font-weight:500}
 li ol li::before {color:#2ba856}
-blockquote {margin:51px 0; padding:1px 0 3px 24px; border-left:3px solid #2ba856; position:relative; color:#136d54; font-weight:300; font-size:18px; line-height:28px}
+blockquote {margin:51px 0; padding:1px 0 3px 24px; border-left:3px solid #2ba856; position:relative; color:#2e2e2e; font-weight:300; font-size:18px; line-height:28px}
 hr {height:1px; margin:30px 0; padding:0; border:none; background:#cdcdcd}
 small {font-size:12px; line-height:18px}
 .wrapper table {width:100%; margin:40px 0; border-collapse:collapse}
@@ -178,8 +178,8 @@ header {background:#052d63; position:relative; z-index:20; padding:0 0 30px 0}
 .logo {float:left; width:364px; height:68px; background:url(../images/logo.png); position:relative; margin:30px 0 0 0}
 .logo a {display:block; position:absolute; left:0; top:0; right:0; bottom:0}
 
-.header-contacts {float:right; background:#06172e; height:43px; line-height:43px; position:relative; padding:0 22px 0 6px; text-transform:uppercase}
-.header-contacts::before {content:""; display:block; position:absolute; left:-43px; top:0; border-top:43px solid #06172e; border-left:43px solid transparent}
+.header-contacts {float:right; background:#042550; height:43px; line-height:43px; position:relative; padding:0 22px 0 6px; text-transform:uppercase}
+.header-contacts::before {content:""; display:block; position:absolute; left:-43px; top:0; border-top:43px solid #042550; border-left:43px solid transparent}
 .header-phone {float:left; font-size:14px; font-weight:300; color:#ffff; padding:0 0 0 19px; background:url(../images/header-phone.png) no-repeat left center}
 .header-phone a {color:#fff; text-decoration:none}
 .header-feedback {float:left; margin:0 0 0 43px; font-size:11px; font-weight:500}
@@ -233,6 +233,12 @@ nav ul li:hover ul li.active a {color:#2ba856}
 .slider .slick-dots li button {display:block; width:10px; height:10px; border-radius:50%; border:2px solid #00a600; box-sizing:border-box; background:#fff; margin:0; padding:0; outline:none; -webkit-appearance:none; cursor:pointer; font-size:0; line-height:0; text-indent:100px}
 .slider .slick-dots li.slick-active button {background:#00a600; width:9px; height:9px}
 
+@media screen and (max-width:1599px) {
+    .slider-item-text-inner {height:585px; padding:0 155px}
+    .slider-item-text-title {font-size:56px; line-height:68px}
+    .slider-item-text-link {padding:45px 0 0 0}
+}
+
 .main-services {padding:80px 0 0 0}
 .main-services .container {max-width:1080px}
 .main-services-list {margin:68px 0 0 0}
@@ -254,7 +260,7 @@ nav ul li:hover ul li.active a {color:#2ba856}
 .main-pref {display:inline-block; vertical-align:middle; width:33.33%; text-align:center; padding:0 0 60px 0}
 .main-pref-icon {line-height:87px; height:87px}
 .main-pref-icon img {vertical-align:bottom}
-.main-pref-title {font-size:16px; line-height:22px; letter-spacing:0; color:#363941; padding:20px 0 0 0}
+.main-pref-title {font-size:16px; line-height:22px; letter-spacing:0; color:#363941; padding:20px 0 0 0; font-weight:500}
 
 .main-partners {padding:90px 0 0 0}
 .main-partners .container {max-width:1080px}
