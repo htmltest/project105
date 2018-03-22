@@ -58,6 +58,86 @@ $(document).ready(function() {
         e.preventDefault();
     });
 
+    $('.main-gallery-item a, .rewards-item a').click(function(e) {
+        $('html').data('scrollTop', $(window).scrollTop());
+        $('.wrapper').css('margin-top', -$(window).scrollTop());
+        e.preventDefault();
+    });
+
+    $('.main-gallery-item a').fancybox({
+        prevEffect: 'none',
+        nextEffect: 'none',
+        margin: 0,
+        padding: 0,
+        maxWidth: 970,
+        minWidth: 480,
+        aspectRatio: true,
+        tpl : {
+            closeBtn : '',
+            next     : '<a title="Следующая" class="fancybox-nav fancybox-next" href="javascript:;"><span></span></a>',
+            prev     : '<a title="Предыдущая" class="fancybox-nav fancybox-prev" href="javascript:;"><span></span></a>'
+        },
+        helpers: {
+			thumbs	: {
+				width	: 108,
+				height	: 108
+			}
+        },
+        closeEffect: 'none',
+        closeSpeed: 0
+    });
+
+    $('.rewards-item a').fancybox({
+        prevEffect: 'none',
+        nextEffect: 'none',
+        margin: 0,
+        padding: 0,
+        maxWidth: 970,
+        minWidth: 480,
+        aspectRatio: true,
+        tpl : {
+            closeBtn : '',
+            next     : '<a title="Следующая" class="fancybox-nav fancybox-next" href="javascript:;"><span></span></a>',
+            prev     : '<a title="Предыдущая" class="fancybox-nav fancybox-prev" href="javascript:;"><span></span></a>'
+        },
+        closeEffect: 'none',
+        closeSpeed: 0
+    });
+
+    $('.services-item-link a').click(function(e) {
+        $.scrollTo($('.feedback'), 500);
+        e.preventDefault();
+    });
+
+    $('.plan-map').maphilight();
+
+    var planTimer = null;
+
+    $('body').on('mouseover', '.plan area', function(e) {
+        var curIndex = $('.plan area').index($(this));
+        $('.plan-window').hide();
+        $('.plan-window').eq(curIndex).show();
+        window.clearTimeout(planTimer);
+        planTimer = null;
+    });
+
+    $('body').on('mouseout', '.plan area', function(e) {
+        planTimer = window.setTimeout(function() {
+            $('.plan-window').hide();
+        }, 500);
+    });
+
+    $('body').on('mouseover', '.plan-window', function(e) {
+        window.clearTimeout(planTimer);
+        planTimer = null;
+    });
+
+    $('body').on('mouseout', '.plan-window', function(e) {
+        planTimer = window.setTimeout(function() {
+            $('.plan-window').hide();
+        }, 500);
+    });
+
 });
 
 $(window).on('resize', function() {
