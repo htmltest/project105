@@ -147,7 +147,7 @@ form {margin:30px 0; padding:0}
 .form-file-input input {height:200px; position:absolute; top:0; right:0; opacity:0; cursor:pointer; font-size:200px; background:url(../images/blank.gif); -webkit-appearance:none}
 .error .form-file-input {color:#d10606}
 .form-file-input label.error {display:none !important}
-.form-file-name {margin:0 0 0 180px; color:#919191}
+.form-file-name {margin:0 0 0 180px; color:#919191; line-height:22px}
 
 .form-submit {float:left}
 .form-reset {float:left; margin:0 0 0 30px; text-transform:uppercase; font-weight:500; line-height:52px}
@@ -176,10 +176,16 @@ form {margin:30px 0; padding:0}
 .wrapper {min-width:1200px; min-height:100%; width:100%; position:relative; overflow:hidden}
 .wrapper-inner {padding:0 0 323px 0}
 
+.header-fixed .wrapper-inner {padding-top:54px}
+
 header {background:#052d63; position:relative; z-index:20; padding:0 0 30px 0}
+
+.header-fixed header {height:54px; padding:0; position:fixed; left:0; top:0; right:0}
 
 .logo {float:left; width:364px; height:68px; background:url(../images/logo.png); position:relative; margin:30px 0 0 0}
 .logo a {display:block; position:absolute; left:0; top:0; right:0; bottom:0}
+
+.header-fixed .logo {display:none}
 
 .header-contacts {float:right; background:#042550; height:43px; line-height:43px; position:relative; padding:0 22px 0 6px; text-transform:uppercase}
 .header-contacts::before {content:""; display:block; position:absolute; left:-43px; top:0; border-top:43px solid #042550; border-left:43px solid transparent}
@@ -214,6 +220,10 @@ nav ul li.active ul li a {display:block; color:#fff; text-decoration:none; paddi
 nav ul li:hover ul li a::after {display:none}
 nav ul li:hover ul li a:hover,
 nav ul li:hover ul li.active a {color:#2ba856}
+
+.header-fixed nav {float:left; clear:none; padding:18px 0 0 0}
+.header-fixed nav ul li ul {margin:20px 0 0 0}
+.header-fixed nav ul li ul::before {top:-20px; height:20px}
 
 .breadcrumbs {font-size:12px; line-height:15px; color:#a6a6a6; margin:20px 0 0 0}
 .breadcrumbs a {color:#a6a6a6}
@@ -380,7 +390,8 @@ nav ul li:hover ul li.active a {color:#2ba856}
 .history-item-text {margin:0 0 0 105px; padding:2px 0 0 0}
 .history-item-text strong {font-weight:600}
 
-.info-gallery {margin:76px 0 -126px 0; padding:80px 0 90px 0; background:#ececec}
+.info-gallery {margin:76px 0 -126px 0; padding:34px 0 90px 0; background:#ececec}
+.info-gallery .main-gallery-list {margin-top:34px}
 
 .rewards {margin:0 -15px; font-size:0; line-height:0; letter-spacing:-1px; margin:0 0 -40px 0}
 .rewards-item {display:inline-block; vertical-align:top; width:25%; padding:0 15px 40px 15px; box-sizing:border-box}
@@ -389,6 +400,7 @@ nav ul li:hover ul li.active a {color:#2ba856}
 .rewards-item-title {font-size:16px; line-height:22px; font-weight:500; letter-spacing:0; padding:20px 0 0 0; text-align:center}
 .rewards-item a:hover .rewards-item-title {text-decoration:underline}
 
+.services {margin:0 -10px}
 .services h1 {text-align:center}
 
 .services-menu ul {margin:40px 0 0 0; padding:0; list-style:none}
@@ -399,7 +411,7 @@ nav ul li:hover ul li.active a {color:#2ba856}
 .services-menu ul li a {display:block; text-decoration:none; text-align:center; font-size:14px; line-height:22px; font-weight:500; text-transform:uppercase; padding:22px 1px 17px 1px}
 .services-menu ul li.active a {border:1px solid #052d63; border-bottom:none; padding:21px 0 18px 0}
 
-.services-item {border-bottom:1px solid #cdcdcd; padding:55px 109px 60px 99px}
+.services-item {border-bottom:1px solid #cdcdcd; padding:55px 95px 60px 95px; margin:0 9px 0 15px 0}
 .services-item-inner {position:relative}
 .services-item-inner::after {content:""; display:block; clear:both}
 .services-item-img {float:right; position:relative; line-height:0; width:470px; margin:5px 0 0 0}
@@ -418,8 +430,13 @@ nav ul li:hover ul li.active a {color:#2ba856}
 
 .plan {width:1280px; margin:0 auto; height:590px; position:relative; background:url(../images/plan.jpg) no-repeat center top}
 .plan-map {position:absolute; left:0; top:0}
+.compass {position:absolute; right:44px; bottom:39px; width:131px; height:131px; background:url(../images/compass.png)}
 .plan-window {display:none; position:absolute; background:#fff; width:317px; transform:translateY(-50%); border-radius:3px; box-shadow:0 2px 14px 0 rgba(0, 0, 0, 0.5)}
+.plan-window.right {margin-left:-317px}
+.plan-window.top {transform:translateY(-30px)}
 .plan-window::after {content:""; display:block; width:0; height:0; border-right:6px solid #fff; border-top:8px solid transparent; border-bottom:8px solid transparent; position:absolute; left:-6px; top:50%; margin-top:-8px}
+.plan-window.right::after {left:auto; right:-6px; border-right:none; border-left:6px solid #fff}
+.plan-window.top::after {top:30px}
 .plan-window-title {font-size:16px; font-weight:500; line-height:22px; padding:19px 30px 16px 30px}
 .plan-window-info {border-top:2px solid #2ba856; padding:12px 30px 0 30px}
 .plan-window-info dl {margin:0; padding:0; line-height:32px}
@@ -459,3 +476,10 @@ footer {min-width:1200px; height:197px; margin:-197px 0 0 0; position:relative; 
 .footer-policy a {color:#fff}
 .footer-developer {float:right; padding:16px 0 0 0}
 .footer-developer img {vertical-align:middle}
+
+.link-to-up {display:none; position:fixed; right:76px; bottom:76px; z-index:99}
+.link-to-up.visible {display:block}
+.link-to-up .btn-1 {padding:0 25px; background:#fff}
+.link-to-up .btn-1:hover {background:#052d63}
+.link-to-up .btn-1:active {background:#102d54}.link-to-up svg {display:inline-block; vertical-align:middle; margin:-2px 0 0 4px}
+.link-to-up .btn-1:hover svg g {stroke:#fff}
