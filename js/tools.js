@@ -21,7 +21,15 @@ $(document).ready(function() {
         adaptiveHeight: true,
         prevArrow: '<button type="button" class="slick-prev"></button>',
         nextArrow: '<button type="button" class="slick-next"></button>',
-        dots: true
+        dots: true,
+        responsive: [
+            {
+                breakpoint: 1169,
+                settings: {
+                    arrows: false
+                }
+            }
+        ]
     });
 
     $('.gallery').each(function() {
@@ -67,13 +75,13 @@ $(document).ready(function() {
     $('.main-gallery-item a').fancybox({
         prevEffect: 'none',
         nextEffect: 'none',
-        margin: 0,
+        margin: 20,
         padding: 0,
         maxWidth: 970,
-        minWidth: 480,
+        minWidth: 440,
         aspectRatio: true,
         tpl : {
-            closeBtn : '',
+            closeBtn : '<a title="Закрыть" class="fancybox-item fancybox-close" href="javascript:;"></a>',
             next     : '<a title="Следующая" class="fancybox-nav fancybox-next" href="javascript:;"><span></span></a>',
             prev     : '<a title="Предыдущая" class="fancybox-nav fancybox-prev" href="javascript:;"><span></span></a>'
         },
@@ -88,56 +96,21 @@ $(document).ready(function() {
     });
 
     $('.main-gallery-more a').click(function(e) {
-        var loadURL = $(this).attr('href');
         $('.main-gallery-more').remove();
-        $.ajax({
-            type: 'POST',
-            url: loadURL,
-            dataType: 'html',
-            cache: false
-        }).done(function(html) {
-            $('.main-gallery-list').append(html);
-            $('.main-gallery-item a').click(function(e) {
-                $('html').data('scrollTop', $(window).scrollTop());
-                $('.wrapper').css('margin-top', -$(window).scrollTop());
-                e.preventDefault();
-            });
-            $('.main-gallery-item a').fancybox({
-                prevEffect: 'none',
-                nextEffect: 'none',
-                margin: 0,
-                padding: 0,
-                maxWidth: 970,
-                minWidth: 480,
-                aspectRatio: true,
-                tpl : {
-                    closeBtn : '',
-                    next     : '<a title="Следующая" class="fancybox-nav fancybox-next" href="javascript:;"><span></span></a>',
-                    prev     : '<a title="Предыдущая" class="fancybox-nav fancybox-prev" href="javascript:;"><span></span></a>'
-                },
-                helpers: {
-                    thumbs	: {
-                        width	: 108,
-                        height	: 108
-                    }
-                },
-                closeEffect: 'none',
-                closeSpeed: 0
-            });
-        });
+        $('.main-gallery-item').css({'display': 'inline-block'});
         e.preventDefault();
     });
 
     $('.rewards-item a').fancybox({
         prevEffect: 'none',
         nextEffect: 'none',
-        margin: 0,
+        margin: 20,
         padding: 0,
         maxWidth: 970,
-        minWidth: 480,
+        minWidth: 440,
         aspectRatio: true,
         tpl : {
-            closeBtn : '',
+            closeBtn : '<a title="Закрыть" class="fancybox-item fancybox-close" href="javascript:;"></a>',
             next     : '<a title="Следующая" class="fancybox-nav fancybox-next" href="javascript:;"><span></span></a>',
             prev     : '<a title="Предыдущая" class="fancybox-nav fancybox-prev" href="javascript:;"><span></span></a>'
         },
@@ -204,7 +177,7 @@ $(document).ready(function() {
     });
 
     $(window).on('load resize scroll', function() {
-        if ($(window).scrollTop() > 127) {
+        if ($(window).scrollTop() > 53) {
             $('html').addClass('header-fixed');
         } else {
             if (!($('html').data('scrollTop') > 0)) {
@@ -214,6 +187,12 @@ $(document).ready(function() {
 
         if ($(window).scrollTop() > $(window).height()) {
             $('.link-to-up').addClass('visible');
+            var curFooter = ($('footer').offset().top - 15) - ($(window).scrollTop() + $(window).height());
+            if (curFooter < 0) {
+                $('.link-to-up').css({'bottom': -curFooter});
+            } else {
+                $('.link-to-up').css({'bottom': 15});
+            }
         } else {
             $('.link-to-up').removeClass('visible');
         }
@@ -222,6 +201,41 @@ $(document).ready(function() {
     $('.link-to-up a').click(function(e) {
         $.scrollTo(0, 500);
         e.preventDefault();
+    });
+
+    $('.mobile-menu-link').click(function(e) {
+        $('html').toggleClass('mobile-menu-open');
+        e.preventDefault();
+    });
+
+    $('nav a').click(function(e) {
+        if ($('html').hasClass('mobile-menu-open')) {
+            var curLi = $(this).parent();
+            if (curLi.find('.nav-arrow').length > 0) {
+                curLi.toggleClass('hover');
+                e.preventDefault();
+            }
+        }
+    });
+
+    $('.side-menu-current').click(function(e) {
+        $('.side-menu').toggleClass('open');
+    });
+
+    $(document).click(function(e) {
+        if ($(e.target).parents().filter('.side-menu').length == 0) {
+            $('.side-menu').removeClass('open');
+        }
+    });
+
+    $('.services-menu-current').click(function(e) {
+        $('.services-menu').toggleClass('open');
+    });
+
+    $(document).click(function(e) {
+        if ($(e.target).parents().filter('.services-menu').length == 0) {
+            $('.services-menu').removeClass('open');
+        }
     });
 
 });
@@ -268,9 +282,15 @@ function initForm(curForm) {
     curForm.find('.form-file input').change(function() {
         var curInput = $(this);
         var curField = curInput.parent().parent().parent().parent();
-        curField.find('.form-file-name').html(curInput.val().replace(/.*(\/|\\)/, ''));
+        curField.find('.form-file-name-text').html(curInput.val().replace(/.*(\/|\\)/, ''));
         curField.find('label.error').remove();
         curField.removeClass('error');
+    });
+
+    curForm.find('.form-file-name-remove').click(function() {
+        var curField = $(this).parents().filter('.form-file');
+        curField.find('.form-file-name-text').html('');
+        curField.find('input').val(null);
     });
 
     curForm.find('.form-reset a').click(function(e) {
@@ -283,6 +303,8 @@ function initForm(curForm) {
         curForm.find('label.error').remove();
         curForm.find('.error').removeClass('error');
         curForm.find('.valid').removeClass('valid');
+
+        curForm.find('.form-file-name-remove').trigger('click');
 
         window.setTimeout(function() {
             curForm.find('.form-select select').chosen('destroy');
@@ -297,6 +319,24 @@ function initForm(curForm) {
         invalidHandler: function(form, validatorcalc) {
             validatorcalc.showErrors();
             checkErrors();
+        },
+        submitHandler: function(form) {
+            if ($(form).hasClass('ajax-form')) {
+                $(form).find('.form-success, .form-error').remove();
+                $(form).append('<div class="loading"></div>');
+                $.ajax({
+                    type: 'POST',
+                    url: $(form).attr('action'),
+                    dataType: 'html',
+                    data: $(form).serialize(),
+                    cache: false
+                }).done(function(html) {
+                    $(form).find('.loading').remove();
+                    $(form).append(html);
+                });
+            } else {
+                form.submit();
+            }
         }
     });
 }

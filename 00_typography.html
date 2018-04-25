@@ -23,7 +23,7 @@
         <script src="js/jquery.maphilight.min.js"></script>
         <script src="js/tools.js"></script>
 
-        <meta name="viewport" content="width=1200" />
+        <meta name="viewport" content="width=device-width" />
     </head>
 
     <body>
@@ -41,6 +41,8 @@
                             <div class="header-feedback"><a href="#">Обратная связь</a></div>
                             <div class="header-presentation"><a href="#">Скачать презентацию</a></div>
                         </div>
+
+                        <a href="#" class="mobile-menu-link"></a>
 
                         <nav>
                             <ul>
@@ -90,6 +92,7 @@
                     <!-- content side -->
                     <div class="content-side">
                         <div class="side-menu">
+                            <div class="side-menu-current">Информация</div>
                             <ul>
                                 <li class="active"><a href="#">Информация</a></li>
                                 <li><a href="#">История</a></li>
@@ -342,7 +345,7 @@
                                 <div class="form-row">
                                     <div class="form-file">
                                         <div class="form-file-input">Прикрепить файл<input type="file" name="file" class="required" /></div>
-                                        <div class="form-file-name"></div>
+                                        <div class="form-file-name"><span class="form-file-name-text"></span><span class="form-file-name-remove"></span></div>
                                     </div>
                                 </div>
 
@@ -357,15 +360,23 @@
 
                                 <p>
                                     <div class="link-file">
-                                        <div class="link-file-icon"><img src="images/icon-ppt.png" alt="" /></div>
+                                        <div class="link-file-icon"><div class="link-file-icon-text">ppt</div></div>
                                         <div class="link-file-text">
                                             <a href="#">Презентация 2.0</a> (540Kb. ppt)
                                         </div>
                                     </div>
-                                    <img src="images/icon-pdf.png" alt="" />
-                                    <img src="images/icon-xls.png" alt="" />
-                                    <img src="images/icon-doc.png" alt="" />
-                                    <img src="images/icon-ppt.png" alt="" />
+                                    <div class="link-file">
+                                        <div class="link-file-icon"><div class="link-file-icon-text">pdf</div></div>
+                                    </div>
+                                    <div class="link-file">
+                                        <div class="link-file-icon"><div class="link-file-icon-text">xls</div></div>
+                                    </div>
+                                    <div class="link-file">
+                                        <div class="link-file-icon"><div class="link-file-icon-text">doc</div></div>
+                                    </div>
+                                    <div class="link-file">
+                                        <div class="link-file-icon"><div class="link-file-icon-text">ppt</div></div>
+                                    </div>
                                 </p>
 
                                 <div class="form-success">
@@ -424,7 +435,7 @@
 
         </footer>
 
-        <div class="link-to-up"><a href="#" class="btn-1">Наверх <svg width="10px" height="12px" viewBox="0 0 10 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="Group" stroke="#052D63" stroke-width="2"><g transform="translate(5.000000, 6.000000) rotate(-270.000000) translate(-5.000000, -6.000000) translate(-1.000000, 1.000000)"><polyline id="Path-6" points="4 0 0 5 4 10"></polyline><path d="M0,5 L12,5" id="Path-7"></path></g></g></g></svg></a></div></div>
+        <div class="link-to-up"><a href="#" class="btn-1"><svg width="10px" height="12px" viewBox="0 0 10 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="Group" stroke="#052D63" stroke-width="2"><g transform="translate(5.000000, 6.000000) rotate(-270.000000) translate(-5.000000, -6.000000) translate(-1.000000, 1.000000)"><polyline id="Path-6" points="4 0 0 5 4 10"></polyline><path d="M0,5 L12,5" id="Path-7"></path></g></g></g></svg></a></div></div>
 
     </body>
 </html>

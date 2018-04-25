@@ -23,7 +23,7 @@
         <script src="js/jquery.maphilight.min.js"></script>
         <script src="js/tools.js"></script>
 
-        <meta name="viewport" content="width=1200" />
+        <meta name="viewport" content="width=device-width" />
     </head>
 
     <body>
@@ -41,6 +41,8 @@
                             <div class="header-feedback"><a href="#">Обратная связь</a></div>
                             <div class="header-presentation"><a href="#">Скачать презентацию</a></div>
                         </div>
+
+                        <a href="#" class="mobile-menu-link"></a>
 
                         <nav>
                             <ul>
@@ -118,25 +120,25 @@
                     <div class="container">
                         <div class="main-title">Услуги</div>
                         <div class="main-services-list">
-                            <a href="#" class="main-service" style="background:url(files/main-services-1.jpg)">
+                            <a href="#" class="main-service" style="background-image:url(files/main-services-1.jpg)">
                                 <div class="main-service-box"></div>
                                 <div class="main-service-box-left-top"></div>
                                 <div class="main-service-box-left-bottom"></div>
                                 <div class="main-service-title">Ответственное хранение грузов</div>
                             </a>
-                            <a href="#" class="main-service" style="background:url(files/main-services-2.jpg)">
+                            <a href="#" class="main-service" style="background-image:url(files/main-services-2.jpg)">
                                 <div class="main-service-box"></div>
                                 <div class="main-service-box-left-top"></div>
                                 <div class="main-service-box-left-bottom"></div>
                                 <div class="main-service-title">Аренда помещений</div>
                             </a>
-                            <a href="#" class="main-service" style="background:url(files/main-services-3.jpg)">
+                            <a href="#" class="main-service" style="background-image:url(files/main-services-3.jpg)">
                                 <div class="main-service-box"></div>
                                 <div class="main-service-box-left-top"></div>
                                 <div class="main-service-box-left-bottom"></div>
                                 <div class="main-service-title">Железнодорожные услуги</div>
                             </a>
-                            <a href="#" class="main-service" style="background:url(files/main-services-4.jpg)">
+                            <a href="#" class="main-service" style="background-image:url(files/main-services-4.jpg)">
                                 <div class="main-service-box"></div>
                                 <div class="main-service-box-left-top"></div>
                                 <div class="main-service-box-left-bottom"></div>
@@ -198,6 +200,18 @@
                             <div class="main-partner-sep"></div>
                             <div class="main-partner"><a href="#"><img src="files/main-partner-6.png" alt="" /></a></div>
                         </div>
+                        <div class="main-partners-list-mobile">
+                            <div class="main-partner"><a href="#"><img src="files/main-partner-2.png" alt="" /></a></div>
+                            <div class="main-partner-sep"></div>
+                            <div class="main-partner main-partner-wide"><a href="#"><img src="files/main-partner-1.png" alt="" /></a></div>
+                            <div class="main-partner-sep"></div>
+                            <div class="main-partner"><a href="#"><img src="files/main-partner-3.png" alt="" /></a></div>
+                            <div class="main-partner"><a href="#"><img src="files/main-partner-4.png" alt="" /></a></div>
+                            <div class="main-partner-sep"></div>
+                            <div class="main-partner main-partner-wide"><a href="#"><img src="files/main-partner-5.png" alt="" /></a></div>
+                            <div class="main-partner-sep"></div>
+                            <div class="main-partner"><a href="#"><img src="files/main-partner-6.png" alt="" /></a></div>
+                        </div>
                     </div>
                 </div>
                 <!-- main partners END -->
@@ -215,9 +229,17 @@
                             <div class="main-gallery-item"><a href="files/main-gallery-6-big.jpg" rel="group"><img src="files/main-gallery-6.jpg" alt="" /></a></div>
                             <div class="main-gallery-item"><a href="files/main-gallery-7-big.jpg" rel="group"><img src="files/main-gallery-7.jpg" alt="" /></a></div>
                             <div class="main-gallery-item"><a href="files/main-gallery-8-big.jpg" rel="group"><img src="files/main-gallery-8.jpg" alt="" /></a></div>
+                            <div class="main-gallery-item hidden"><a href="files/main-gallery-8-big.jpg" rel="group"><img src="files/main-gallery-8.jpg" alt="" /></a></div>
+                            <div class="main-gallery-item hidden"><a href="files/main-gallery-7-big.jpg" rel="group"><img src="files/main-gallery-7.jpg" alt="" /></a></div>
+                            <div class="main-gallery-item hidden"><a href="files/main-gallery-6-big.jpg" rel="group"><img src="files/main-gallery-6.jpg" alt="" /></a></div>
+                            <div class="main-gallery-item hidden"><a href="files/main-gallery-5-big.jpg" rel="group"><img src="files/main-gallery-5.jpg" alt="" /></a></div>
+                            <div class="main-gallery-item hidden"><a href="files/main-gallery-4-big.jpg" rel="group"><img src="files/main-gallery-4.jpg" alt="" /></a></div>
+                            <div class="main-gallery-item hidden"><a href="files/main-gallery-3-big.jpg" rel="group"><img src="files/main-gallery-3.jpg" alt="" /></a></div>
+                            <div class="main-gallery-item hidden"><a href="files/main-gallery-2-big.jpg" rel="group"><img src="files/main-gallery-2.jpg" alt="" /></a></div>
+                            <div class="main-gallery-item hidden"><a href="files/main-gallery-1-big.jpg" rel="group"><img src="files/main-gallery-1.jpg" alt="" /></a></div>
                         </div>
                         <div class="main-gallery-more">
-                            <a href="files/gallery.html" class="btn-1" disabled="true">Ещё фото</a>
+                            <a href="#" class="btn-1" disabled="true">Ещё фото</a>
                         </div>
                     </div>
                 </div>
@@ -253,6 +275,11 @@
                     }
                 </script>
 
+                <div class="main-contacts-mobile">
+                    <div class="main-contacts-mobile-address">143051, Московская область,<br /> Одинцовский район, р/п Большие Вяземы,<br /> ул. Ямская, владение 9.</div>
+                    <div class="main-contacts-mobile-phone">+ 7 (499) 790 90 90</div>
+                </div>
+
             </div>
         </div>
         <!-- wrapper END -->
@@ -284,7 +311,7 @@
 
         </footer>
 
-        <div class="link-to-up"><a href="#" class="btn-1">Наверх <svg width="10px" height="12px" viewBox="0 0 10 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="Group" stroke="#052D63" stroke-width="2"><g transform="translate(5.000000, 6.000000) rotate(-270.000000) translate(-5.000000, -6.000000) translate(-1.000000, 1.000000)"><polyline id="Path-6" points="4 0 0 5 4 10"></polyline><path d="M0,5 L12,5" id="Path-7"></path></g></g></g></svg></a></div></div>
+        <div class="link-to-up"><a href="#" class="btn-1"><svg width="10px" height="12px" viewBox="0 0 10 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="Group" stroke="#052D63" stroke-width="2"><g transform="translate(5.000000, 6.000000) rotate(-270.000000) translate(-5.000000, -6.000000) translate(-1.000000, 1.000000)"><polyline id="Path-6" points="4 0 0 5 4 10"></polyline><path d="M0,5 L12,5" id="Path-7"></path></g></g></g></svg></a></div></div>
 
     </body>
 </html>
