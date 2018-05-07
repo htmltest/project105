@@ -36,7 +36,7 @@ small {font-size:12px; line-height:18px}
 .wrapper td:first-child {padding-left:16px}
 .wrapper tr:hover td {background:#edeff4}
 
-@media screen and (max-width:1169px) {
+@media screen and (max-width:767px) {
     h1 {font-size:30px; line-height:43px; margin:0 0 24px 0}
     h2 {font-size:24px; line-height:30px}
     h3 {font-size:18px}
@@ -200,7 +200,7 @@ form.ajax-form {position:relative}
 .container {max-width:1140px; margin:0 auto; padding:0 15px}
 .container::after {content:""; display:block; clear:both}
 
-@media screen and (max-width:1169px) {
+@media screen and (max-width:767px) {
     .container {padding:0 20px}
 }
 
@@ -209,7 +209,7 @@ form.ajax-form {position:relative}
 
 .header-fixed .wrapper-inner {padding-top:108px}
 
-@media screen and (max-width:1169px) {
+@media screen and (max-width:767px) {
     .wrapper-inner,
     .header-fixed .wrapper-inner {padding:113px 0 521px 0}
 }
@@ -220,6 +220,11 @@ header {background:#052d63; position:relative; z-index:20; padding:0 0 30px 0}
 
 @media screen and (max-width:1169px) {
     header,
+    .header-fixed header {height:auto; padding:0 0 25px 0}
+}
+
+@media screen and (max-width:767px) {
+    header,
     .header-fixed header {background:rgba(5, 45, 99, 0.93); height:113px; position:fixed; padding:0; left:0; top:0; right:0}
 }
 
@@ -229,6 +234,11 @@ header {background:#052d63; position:relative; z-index:20; padding:0 0 30px 0}
 .header-fixed .logo {display:none}
 
 @media screen and (max-width:1169px) {
+    .logo,
+    .header-fixed .logo {display:block; width:153px; height:68px; background:url(../images/logo-tablet.png); margin:21px 0 0 0}
+}
+
+@media screen and (max-width:767px) {
     .logo,
     .header-fixed .logo {display:block; position:absolute; left:25px; top:53px; width:100px; height:45px; background:url(../images/logo-mobile.png); margin:0}
 }
@@ -248,6 +258,11 @@ header {background:#052d63; position:relative; z-index:20; padding:0 0 30px 0}
 .header-fixed .header-contacts::before {border-left-width:54px; border-top-width:54px; left:-54px}
 
 @media screen and (max-width:1169px) {
+    .header-fixed .header-contacts {float:right; height:43px; line-height:43px}
+    .header-fixed .header-contacts::before {border-left-width:43px; border-top-width:43px; left:-43px}
+}
+
+@media screen and (max-width:767px) {
     .header-contacts,
     .header-fixed .header-contacts {background:rgba(6, 23, 46, 0.31); float:none; height:43px; line-height:43px; margin:0 -20px; padding:0 20px}
     .header-contacts::before {display:none; padding:0}
@@ -257,7 +272,7 @@ header {background:#052d63; position:relative; z-index:20; padding:0 0 30px 0}
 
 .mobile-menu-link {display:none}
 
-@media screen and (max-width:1169px) {
+@media screen and (max-width:767px) {
     .mobile-menu-link {display:block; position:relative; float:right; border-top:3px solid #fff; border-bottom:3px solid #fff; margin:24px 0 0 0; width:30px; height:17px}
     .mobile-menu-link::after {content:""; display:block; position:absolute; left:0; top:7px; right:0; height:3px; background:#fff}
     .mobile-menu-open .mobile-menu-link {background:#052d63}
@@ -266,7 +281,7 @@ header {background:#052d63; position:relative; z-index:20; padding:0 0 30px 0}
 
 nav {float:right; clear:right; padding:27px 0 0 0}
 nav ul {margin:0; padding:0; list-style:none; font-weight:600; font-size:14px; line-height:17px; text-transform:uppercase}
-nav ul li {float:left; margin:0 0 0 40px; padding:0; position:relative}
+nav ul li {float:left; margin:0 0 0 55px; padding:0; position:relative}
 nav ul li:first-child {margin:0}
 nav ul li::before {display:none}
 nav ul li a {display:block; position:relative; color:#fff; text-decoration:none}
@@ -287,7 +302,22 @@ nav ul li:hover ul li a::after {display:none}
 nav ul li:hover ul li a:hover,
 nav ul li:hover ul li.active a {color:#2ba856}
 
+@media screen and (max-width:1599px) {
+    nav ul li {margin:0 0 0 40px}
+    nav ul li:first-child {margin:0}
+    nav ul li ul li {margin:0}
+}
+
 @media screen and (max-width:1169px) {
+    nav ul {font-size:12px}
+    nav ul li {margin:0 0 0 31px}
+    nav ul li:first-child {margin:0}
+    nav ul li ul li {margin:0}
+    nav ul li ul {margin:27px 0 0 0}
+    nav ul li ul::before {top:-27px; height:27px}
+}
+
+@media screen and (max-width:767px) {
     nav {display:none}
     .mobile-menu-open nav {float:none; display:block; position:fixed; left:0; top:113px; right:0; z-index:20; background:#052d63; padding:0 20px}
     .mobile-menu-open nav ul {line-height:22px; padding:12px 0 9px 0; font-weight:500; letter-spacing:0.3px}
@@ -318,7 +348,7 @@ nav ul li:hover ul li.active a {color:#2ba856}
 .breadcrumbs a {color:#a6a6a6}
 .breadcrumbs-arrow {display:inline-block; vertical-align:middle; width:5px; height:9px; background:url(../images/breadcrumbs.png); margin:0 5px}
 
-@media screen and (max-width:1169px) {
+@media screen and (max-width:767px) {
     .breadcrumbs {display:none}
 }
 
@@ -346,6 +376,12 @@ nav ul li:hover ul li.active a {color:#2ba856}
 }
 
 @media screen and (max-width:1169px) {
+    .slider-item-text-inner {height:475px; padding:0 77px}
+    .slider-item-text-title {font-size:42px; line-height:48px}
+    .slider-item-text-link {padding:23px 0 0 0}
+}
+
+@media screen and (max-width:767px) {
     .slider-item-text-inner {height:269px; vertical-align:top; padding:0 13px}
     .slider-item-text-title {font-size:30px; line-height:36px; letter-spacing:0.8px; padding:41px 0 0 0}
     .slider-item-text-link {padding:15px 0 0 0}
@@ -366,6 +402,11 @@ nav ul li:hover ul li.active a {color:#2ba856}
 .main-service-title {position:absolute; left:17px; top:29.26%; right:60px; font-weight:bold; font-size:22px; line-height:22px}
 
 @media screen and (max-width:1169px) {
+    .main-service {width:50%; padding:50% 0 0 0}
+    .main-service-title {font-size:26px; line-height:26px}
+}
+
+@media screen and (max-width:767px) {
     .main-services {padding:0}
     .main-services-list {margin:0 -20px}
     .main-services .main-title {display:none}
@@ -378,7 +419,7 @@ nav ul li:hover ul li.active a {color:#2ba856}
 
 .main-title {font-weight:bold; font-size:42px; line-height:51px; text-transform:uppercase; padding:0 0 0 67px}
 
-@media screen and (max-width:1169px) {
+@media screen and (max-width:767px) {
     .main-title {padding:0; font-size:24px; line-height:34px; letter-spacing:0.7px; text-transform:none}
 }
 
@@ -391,6 +432,10 @@ nav ul li:hover ul li.active a {color:#2ba856}
 .main-pref-title {font-size:16px; line-height:22px; letter-spacing:0; color:#363941; padding:20px 0 0 0; font-weight:500}
 
 @media screen and (max-width:1169px) {
+    .main-pref {width:50%}
+}
+
+@media screen and (max-width:767px) {
     .main-prefs {background:#ebebeb; padding:35px 0 0 0}
     .main-prefs-list {border:none; padding:40px 0 0 0; margin:0}
     .main-pref {width:50%; margin:0 0 50px 0; padding:0}
@@ -425,6 +470,10 @@ nav ul li:hover ul li.active a {color:#2ba856}
 .main-gallery-more {padding:74px 0 0 0; text-align:center}
 
 @media screen and (max-width:1169px) {
+    .main-gallery-item {width:50%}
+}
+
+@media screen and (max-width:767px) {
     .main-gallery {margin:30px 0 0 0; padding:34px 0 37px 0}
     .main-gallery-list {margin:30px -20px 0 -20px}
     .main-gallery-item {padding:0; width:33.33%}
@@ -437,13 +486,17 @@ nav ul li:hover ul li.active a {color:#2ba856}
 .contacts-map {height:427px; margin:80px 0 0 0}
 
 @media screen and (max-width:1169px) {
+    .contacts-map {height:398px}
+}
+
+@media screen and (max-width:767px) {
     .main-map {height:333px; margin:0 -20px}
     .contacts-map {height:411px; margin:45px 0 0 0}
 }
 
 .main-contacts-mobile {display:none}
 
-@media screen and (max-width:1169px) {
+@media screen and (max-width:767px) {
     .main-contacts-mobile {display:block; margin:0 0 -126px 0; background:#ebebeb; text-align:center; font-size:14px; line-height:20px; color:#142842; padding:16px 0}
     .main-contacts-mobile-phone {padding:12px 0 0 0}
 }
@@ -459,7 +512,7 @@ nav ul li:hover ul li.active a {color:#2ba856}
 .side-menu ul li a:hover {color:#052d63; border-color:#052d63}
 .side-menu ul li.active a {color:#2ba856; border-color:#2ba856}
 
-@media screen and (max-width:1169px) {
+@media screen and (max-width:767px) {
     .content-side {float:none; width:auto; margin:40px 0 0 0}
     .side-menu {position:relative}
     .side-menu-current {display:block; border:1px solid #1c366e; height:56px; line-height:56px; padding:0 0 0 20px; position:relative; font-weight:500; color:#1c366e; letter-spacing:0.4px; cursor:pointer}
@@ -477,7 +530,7 @@ nav ul li:hover ul li.active a {color:#2ba856}
 .content {padding:41px 0 0 0}
 .content-wrap {float:left; width:100%}
 
-@media screen and (max-width:1169px) {
+@media screen and (max-width:767px) {
     .content-side+.content {margin:0}
 }
 
@@ -488,7 +541,7 @@ nav ul li:hover ul li.active a {color:#2ba856}
 .team-item-name {font-size:22px; font-weight:600}
 .team-item-phone strong {font-weight:500}
 
-@media screen and (max-width:1169px) {
+@media screen and (max-width:767px) {
     .team-item-name {font-size:16px}
     .team-item-post {font-size:12px; line-height:16px}
     .team-item-phone {font-size:12px; line-height:16px}
@@ -503,6 +556,10 @@ nav ul li:hover ul li.active a {color:#2ba856}
 .news-item a:hover .news-item-title {text-decoration:underline}
 
 @media screen and (max-width:1169px) {
+    .news-item {width:50%}
+}
+
+@media screen and (max-width:767px) {
     .news {margin:0}
     .news-item-preview {float:left; width:190px; line-height:0}
     .news-item a::after {content:""; display:block; clear:both}
@@ -529,7 +586,7 @@ nav ul li:hover ul li.active a {color:#2ba856}
 .contacts-email {display:table-cell; vertical-align:top; padding:0 0 0 50px; position:relative; white-space:nowrap}
 .contacts-email::before {content:""; display:block; position:absolute; left:0; top:-7px; width:36px; height:36px; border:1px solid #303030; border-radius:50%; background:url(../images/contacts-email.png) no-repeat center}
 
-@media screen and (max-width:1169px) {
+@media screen and (max-width:767px) {
     .contacts-info {display:block}
     .contacts-address {display:block; padding-right:0}
     .contacts-phone {display:block; padding-right:0; margin:31px 0 0 0}
@@ -546,7 +603,7 @@ nav ul li:hover ul li.active a {color:#2ba856}
 .feedback-ctrl .form-submit {float:right}
 .feedback .form-submit .btn-3 {height:45px; line-height:45px}
 
-@media screen and (max-width:1169px) {
+@media screen and (max-width:767px) {
     .feedback {margin:40px auto 0 auto}
     .feedback h3 {font-size:24px}
     .form-row-feedback {margin:0}
@@ -570,6 +627,10 @@ nav ul li:hover ul li.active a {color:#2ba856}
 .partner a:hover .partner-title {text-decoration:underline}
 
 @media screen and (max-width:1169px) {
+    .partner {width:33.33%}
+}
+
+@media screen and (max-width:767px) {
     .partner {width:50%}
 }
 
@@ -589,7 +650,7 @@ nav ul li:hover ul li.active a {color:#2ba856}
 .page-404-menu-item-list ul li {margin:12px 0 0 0; padding:0}
 .page-404-menu-item-list ul li::before {display:none}
 
-@media screen and (max-width:1169px) {
+@media screen and (max-width:767px) {
     .page-404-text {padding:79px 0 107px 0}
     .page-404-text::before {font-size:200px; line-height:200px; letter-spacing:3.4px; top:0}
     .page-404-menu-item {width:306px; margin:0 auto; float:none; padding:0 0 36px 0}
@@ -615,6 +676,10 @@ nav ul li:hover ul li.active a {color:#2ba856}
 .rewards-item a:hover .rewards-item-title {text-decoration:underline}
 
 @media screen and (max-width:1169px) {
+    .rewards-item {width:33.33%}
+}
+
+@media screen and (max-width:767px) {
     .rewards-item {width:50%}
 }
 
@@ -691,13 +756,17 @@ nav ul li:hover ul li.active a {color:#2ba856}
 
 footer {min-width:480px; height:197px; margin:-197px 0 0 0; position:relative; background:#142842}
 
-@media screen and (max-width:1169px) {
+@media screen and (max-width:767px) {
     footer {height:395px; margin:-395px 0 0 0}
 }
 
 .footer-top {height:87px; padding:51px 0 0 0}
 
 @media screen and (max-width:1169px) {
+    .footer-top {height:108px; padding:30px 0 0 0}
+}
+
+@media screen and (max-width:767px) {
     .footer-top {height:301px; padding:0; position:relative}
 }
 
@@ -710,6 +779,11 @@ footer {min-width:480px; height:197px; margin:-197px 0 0 0; position:relative; b
 .footer-menu ul li a:hover::after {content:""; display:block; position:absolute; left:0; top:-6px; right:0; height:3px; background:#fff}
 
 @media screen and (max-width:1169px) {
+    .footer-menu {float:none; padding:0}
+    .footer-menu::after {content:""; display:block; clear:both}
+}
+
+@media screen and (max-width:767px) {
     .footer-menu {font-size:16px; line-height:23px; padding:18px 0 0 0}
     .footer-menu ul li {float:none; margin:0; padding:25px 0 0 0}
 }
@@ -724,9 +798,16 @@ footer {min-width:480px; height:197px; margin:-197px 0 0 0; position:relative; b
 .footer-email a {color:#fff; text-decoration:none}
 
 @media screen and (max-width:1169px) {
+    .footer-feedback {padding:29px 0 0 0}
+    .footer-phone {float:left; margin:29px 31px 0 0}
+    .footer-email {float:left; margin:29px 0 0 0}
+}
+
+@media screen and (max-width:767px) {
     .footer-phone {float:none; position:absolute; left:50%; top:35px; margin:0}
     .footer-email {float:none; position:absolute; left:50%; top:92px; margin:0}
-    .footer-feedback {float:none; position:absolute; left:50%; top:208px}
+    .footer-feedback {float:none; position:absolute; left:50%; top:208px; padding:0}
+    .footer-feedback .btn-2 {float:none}
 }
 
 .footer-bottom {border-top:1px solid #34426b; font-size:12px; color:#fff; line-height:18px}
@@ -737,7 +818,7 @@ footer {min-width:480px; height:197px; margin:-197px 0 0 0; position:relative; b
 .footer-developer {float:right; padding:16px 0 0 0}
 .footer-developer img {vertical-align:middle}
 
-@media screen and (max-width:1169px) {
+@media screen and (max-width:767px) {
     .footer-copyrights {padding:18px 0 0 0}
     .footer-policy {clear:left; margin:0; padding:8px 0 0 0}
     .footer-developer {margin:-18px 0 0 0; padding:0}
