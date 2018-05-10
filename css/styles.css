@@ -36,12 +36,23 @@ small {font-size:12px; line-height:18px}
 .wrapper td:first-child {padding-left:16px}
 .wrapper tr:hover td {background:#edeff4}
 
+@media screen and (max-width:1169px) {
+    h1 {margin:0 0 24px 0}
+    h2 {margin:48px 0 24px 0}
+
+}
+
 @media screen and (max-width:767px) {
     h1 {font-size:30px; line-height:43px; margin:0 0 24px 0}
-    h2 {font-size:24px; line-height:30px}
+    h2 {font-size:24px; line-height:30px; margin:48px 0 24px 0}
     h3 {font-size:18px}
     h4 {font-size:14px}
     h3+h4 {margin-top:0}
+    .wrapper table {margin:24px -20px; width:calc(100% + 40px)}
+    .wrapper th {font-size:12px; line-height:22px; padding:15px 20px 13px 0}
+    .wrapper th:first-child {padding-left:20px}
+    .wrapper td {font-size:12px; line-height:22px; padding:15px 20px 13px 0}
+    .wrapper td:first-child {padding-left:20px}
 }
 
 .signature {margin:30px 0}
@@ -130,6 +141,16 @@ form.ajax-form {position:relative}
 .form-select select {position:relative; border:1px solid #1c366e; font:14px/22px "Fira Sans", sans-serif; color:#4f4f4f; vertical-align:top; margin:0; padding:25px 15px 7px 15px; width:100%; height:56px; -webkit-box-sizing:border-box; -moz-box-sizing:border-box; box-sizing:border-box; outline:none; border-radius:0; background:url(../images/blank.gif); -webkit-appearance:none}
 .form-select label.error {display:none !important}
 
+input[type="text"]:focus,
+textarea:focus {font-size:14px}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    textarea:focus,
+    input:focus {
+        font-size: 14px;
+    }
+}
+
 .form-checkboxes {margin:30px 0}
 .form-checkbox {margin:18px 0}
 .form-checkbox::after {content:""; display:block; clear:both}
@@ -200,6 +221,10 @@ form.ajax-form {position:relative}
 .container {max-width:1140px; margin:0 auto; padding:0 15px}
 .container::after {content:""; display:block; clear:both}
 
+@media screen and (max-width:1169px) {
+    .container {padding:0 30px}
+}
+
 @media screen and (max-width:767px) {
     .container {padding:0 20px}
 }
@@ -254,7 +279,7 @@ header {background:#052d63; position:relative; z-index:20; padding:0 0 30px 0}
 .header-presentation a {color:#fff; text-decoration:none; border-bottom:1px dashed #29ba5b}
 .header-presentation a:hover {border-bottom:none}
 
-.header-fixed .header-contacts {float:left; height:54px; line-height:54px}
+.header-fixed .header-contacts {float:left; height:54px; line-height:54px; padding-right:14px}
 .header-fixed .header-contacts::before {border-left-width:54px; border-top-width:54px; left:-54px}
 
 @media screen and (max-width:1169px) {
@@ -344,6 +369,10 @@ nav ul li:hover ul li.active a {color:#2ba856}
 .header-fixed nav ul li ul {margin:20px 0 0 0}
 .header-fixed nav ul li ul::before {top:-20px; height:20px}
 
+@media screen and (max-width:1169px) {
+    .header-fixed nav {padding:27px 0 0 0}
+}
+
 .breadcrumbs {font-size:12px; line-height:15px; color:#a6a6a6; margin:20px 0 0 0}
 .breadcrumbs a {color:#a6a6a6}
 .breadcrumbs-arrow {display:inline-block; vertical-align:middle; width:5px; height:9px; background:url(../images/breadcrumbs.png); margin:0 5px}
@@ -376,7 +405,7 @@ nav ul li:hover ul li.active a {color:#2ba856}
 }
 
 @media screen and (max-width:1169px) {
-    .slider-item-text-inner {height:475px; padding:0 77px}
+    .slider-item-text-inner {height:378px; padding:0 47px}
     .slider-item-text-title {font-size:42px; line-height:48px}
     .slider-item-text-link {padding:23px 0 0 0}
 }
@@ -406,15 +435,20 @@ nav ul li:hover ul li.active a {color:#2ba856}
     .main-service-title {font-size:26px; line-height:26px}
 }
 
-@media screen and (max-width:767px) {
+@media screen and (max-width:1023px) {
     .main-services {padding:0}
-    .main-services-list {margin:0 -20px}
+    .main-services-list {margin:0 -30px}
     .main-services .main-title {display:none}
-    .main-service {float:none; display:block; width:auto; padding:200px 0 0 0}
+    .main-service {float:none; display:block; width:auto; padding:220px 0 0 0}
     .main-service-box {left:33px; right:33px; top:33px; bottom:33px}
     .main-service-box-left-top {left:33px; top:33px; height:calc(50% - 69px)}
     .main-service-box-left-bottom {left:33px; bottom:33px; height:calc(50% - 69px)}
     .main-service-title {max-width:230px; font-size:26px; right:auto; line-height:26px; top:50%; margin-top:-26px; left:26px}
+}
+
+@media screen and (max-width:767px) {
+    .main-services-list {margin:0 -20px}
+    .main-service {padding:200px 0 0 0}
 }
 
 .main-title {font-weight:bold; font-size:42px; line-height:51px; text-transform:uppercase; padding:0 0 0 67px}
@@ -432,6 +466,8 @@ nav ul li:hover ul li.active a {color:#2ba856}
 .main-pref-title {font-size:16px; line-height:22px; letter-spacing:0; color:#363941; padding:20px 0 0 0; font-weight:500}
 
 @media screen and (max-width:1169px) {
+    .main-prefs {padding:40px 36px 0 36px}
+    .main-prefs-list {margin:40px 0 0 0}
     .main-pref {width:50%}
 }
 
@@ -470,7 +506,13 @@ nav ul li:hover ul li.active a {color:#2ba856}
 .main-gallery-more {padding:74px 0 0 0; text-align:center}
 
 @media screen and (max-width:1169px) {
+    .main-gallery {margin:40px 0 0 0; padding:60px 0}
     .main-gallery-item {width:50%}
+    .main-gallery-list {margin:30px -8px 0 -8px}
+    .main-gallery .container {max-width:500px}
+    .main-gallery-item:nth-child(7),
+    .main-gallery-item:nth-child(8) {display:none}
+    .main-gallery-more {padding:54px 0 0 0}
 }
 
 @media screen and (max-width:767px) {
@@ -486,6 +528,7 @@ nav ul li:hover ul li.active a {color:#2ba856}
 .contacts-map {height:427px; margin:80px 0 0 0}
 
 @media screen and (max-width:1169px) {
+    .main-map {height:398px}
     .contacts-map {height:398px}
 }
 
@@ -512,6 +555,10 @@ nav ul li:hover ul li.active a {color:#2ba856}
 .side-menu ul li a:hover {color:#052d63; border-color:#052d63}
 .side-menu ul li.active a {color:#2ba856; border-color:#2ba856}
 
+@media screen and (max-width:1169px) {
+    .content-side {width:110px; margin:32px 0 0 0}
+}
+
 @media screen and (max-width:767px) {
     .content-side {float:none; width:auto; margin:40px 0 0 0}
     .side-menu {position:relative}
@@ -530,8 +577,14 @@ nav ul li:hover ul li.active a {color:#2ba856}
 .content {padding:41px 0 0 0}
 .content-wrap {float:left; width:100%}
 
+@media screen and (max-width:1169px) {
+    .content-side+.content {margin:0 0 0 150px}
+    .content {padding:17px 0 0 0}
+}
+
 @media screen and (max-width:767px) {
     .content-side+.content {margin:0}
+    .content {padding:41px 0 0 0}
 }
 
 .team-item {display:table; width:100%; border-bottom:2px solid #cdcdcd; margin:18px 0 0 0}
@@ -723,6 +776,13 @@ nav ul li:hover ul li.active a {color:#2ba856}
 .services-item-link .btn-3 {height:38px; font-size:12px; line-height:38px; padding:0 20px}
 
 @media screen and (max-width:1169px) {
+    .services-item {padding-left:0; padding-right:0}
+    .services-item-img {width:45%}
+    .services-item-text {margin:0 55% 0 0}
+    .services-item:nth-child(even) .services-item-text {margin:0 0 0 55%}
+}
+
+@media screen and (max-width:767px) {
     .services-item {padding:35px 0 0 0; margin:0; border:none}
     .services-item-img {display:none}
     .services-item-text {margin:0}
@@ -833,3 +893,24 @@ footer {min-width:480px; height:197px; margin:-197px 0 0 0; position:relative; b
 .link-to-up svg {display:inline-block; vertical-align:middle; margin:-2px 0 0 0}
 .link-to-up .btn-1 svg g {stroke:#b1b1b1}
 .link-to-up .btn-1:hover svg g {stroke:#052d63}
+
+.window-open body {overflow:hidden}
+
+.window {position:fixed; left:0; top:0; right:0; bottom:0; z-index:99997; overflow:auto; background:rgba(0, 0, 0, 0.65)}
+.window-loading {position:absolute; left:50%; top:50%; width:36px; height:36px; margin:-18px 0 0 -18px}
+.window-loading::after {content:""; display:block; width:36px; height:36px; background:url(../images/loading-white.svg) no-repeat 2px 4px; animation:circle 1s steps(12) infinite}
+.window-container {position:absolute; z-index:99999; left:50%; top:50%}
+.window-container-load {position:fixed; left:-9999px; top:-9999px}
+.window-content {position:relative; background:#fff}
+.window-close {display:block; position:absolute; width:13px; height:13px; right:21px; top:20px; background:url(../images/window-close.svg); background-size:100%}
+
+.window-feedback {padding:40px 50px 10px 50px; width:300px}
+.window-feedback h2 {margin-top:0}
+.window-feedback {margin:30px 0 0 0}
+.window-feedback .form-field-feedback {float:none; width:auto; margin:30px 0}
+.window-feedback .feedback-ctrl .form-checkbox {float:none; white-space:nowrap}
+.window-feedback .feedback-ctrl .form-checkbox small {font-size:11px}
+.window-feedback .feedback-ctrl .form-submit {float:none; margin:30px 0 0 0}
+.window-feedback .feedback-ctrl .form-submit .btn-3 {display:block; padding:0; text-align:center; width:100%}
+
+.window-hint {font-size:15px; line-height:18px; letter-spacing:0.4px; color:#5d5d5d; margin:-11px 0 24px 0; font-weight:300}

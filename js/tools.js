@@ -66,33 +66,40 @@ $(document).ready(function() {
         e.preventDefault();
     });
 
-    $('.main-gallery-item a, .rewards-item a').click(function(e) {
-        $('html').data('scrollTop', $(window).scrollTop());
-        $('.wrapper').css('margin-top', -$(window).scrollTop());
-        e.preventDefault();
-    });
-
     $('.main-gallery-item a').fancybox({
-        prevEffect: 'none',
-        nextEffect: 'none',
-        margin: 20,
-        padding: 0,
-        maxWidth: 970,
-        minWidth: 440,
-        aspectRatio: true,
-        tpl : {
-            closeBtn : '<a title="Закрыть" class="fancybox-item fancybox-close" href="javascript:;"></a>',
-            next     : '<a title="Следующая" class="fancybox-nav fancybox-next" href="javascript:;"><span></span></a>',
-            prev     : '<a title="Предыдущая" class="fancybox-nav fancybox-prev" href="javascript:;"><span></span></a>'
+        buttons : [
+            'close'
+        ],
+        lang : 'ru',
+        i18n : {
+            'ru' : {
+                CLOSE   : 'Закрыть',
+                NEXT    : 'Вперед',
+                PREV    : 'Назад'
+            }
         },
-        helpers: {
-			thumbs	: {
-				width	: 108,
-				height	: 108
-			}
+        baseTpl:
+            '<div class="fancybox-container" role="dialog" tabindex="-1">' +
+                '<div class="fancybox-bg"></div>' +
+                '<div class="fancybox-toolbar">{{buttons}}</div>' +
+                '<div class="fancybox-navigation">{{arrows}}</div>' +
+                '<div class="fancybox-inner">' +
+                    '<div class="fancybox-stage"></div>' +
+                "</div>" +
+            "</div>",
+        btnTpl: {
+            close:
+                '<button data-fancybox-close class="fancybox-button fancybox-button--close" title="{{CLOSE}}"><svg width="23px" height="23px" viewBox="0 0 23 23" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="Pages" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="02_info_gallery_01" transform="translate(-427.000000, -210.000000)" fill="#FFFFFF" fill-rule="nonzero"><g id="multiply-(2)" transform="translate(427.000000, 210.000000)"><polygon id="Shape" points="23 1.04532013 21.9546799 0 11.5 10.4546799 1.04532013 0 0 1.04532013 10.4546799 11.5 0 21.9546799 1.04532013 23 11.5 12.5453201 21.9546799 23 23 21.9546799 12.5453201 11.5"></polygon></g></g></g></svg></button>',
+            arrowLeft:
+                '<a data-fancybox-prev class="fancybox-button fancybox-button--arrow_left" title="{{PREV}}" href="javascript:;"><svg width="71px" height="72px" viewBox="0 0 71 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="Group"><g><rect id="Rectangle-4" stroke="#FFFFFF" transform="translate(35.390873, 36.000000) rotate(-45.000000) translate(-35.390873, -36.000000) " x="10.890873" y="11.5" width="49" height="49"></rect><g id="right-arrow-copy-2" transform="translate(34.890873, 36.500000) rotate(-180.000000) translate(-34.890873, -36.500000) translate(21.390873, 29.000000)" fill="#FFFFFF" fill-rule="nonzero"><polygon id="Shape" points="19.5626038 0.0286259542 18.3619245 1.24311069 23.7049245 6.64734733 0 6.64734733 0 8.36490458 23.7049245 8.36490458 18.3619245 13.769084 19.5626038 14.9835687 26.9554528 7.5060687"></polygon></g></g></g></g></svg></a>',
+            arrowRight:
+                '<a data-fancybox-next class="fancybox-button fancybox-button--arrow_right" title="{{NEXT}}" href="javascript:;"><svg width="71px" height="72px" viewBox="0 0 71 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="Group"><g><rect id="Rectangle-4" stroke="#FFFFFF" transform="translate(35.390873, 36.000000) rotate(-45.000000) translate(-35.390873, -36.000000) " x="10.890873" y="11.5" width="49" height="49"></rect><g id="right-arrow-copy-2" transform="translate(34.890873, 36.500000) rotate(-180.000000) translate(-34.890873, -36.500000) translate(21.390873, 29.000000)" fill="#FFFFFF" fill-rule="nonzero"><polygon id="Shape" points="19.5626038 0.0286259542 18.3619245 1.24311069 23.7049245 6.64734733 0 6.64734733 0 8.36490458 23.7049245 8.36490458 18.3619245 13.769084 19.5626038 14.9835687 26.9554528 7.5060687"></polygon></g></g></g></g></svg></a>'
         },
-        closeEffect: 'none',
-        closeSpeed: 0
+        thumbs: {
+            autoStart: true,
+            hideOnClose: true,
+            axis: 'x'
+        }
     });
 
     $('.main-gallery-more a').click(function(e) {
@@ -102,20 +109,39 @@ $(document).ready(function() {
     });
 
     $('.rewards-item a').fancybox({
-        prevEffect: 'none',
-        nextEffect: 'none',
-        margin: 20,
-        padding: 0,
-        maxWidth: 970,
-        minWidth: 440,
-        aspectRatio: true,
-        tpl : {
-            closeBtn : '<a title="Закрыть" class="fancybox-item fancybox-close" href="javascript:;"></a>',
-            next     : '<a title="Следующая" class="fancybox-nav fancybox-next" href="javascript:;"><span></span></a>',
-            prev     : '<a title="Предыдущая" class="fancybox-nav fancybox-prev" href="javascript:;"><span></span></a>'
+        buttons : [
+            'close'
+        ],
+        lang : 'ru',
+        i18n : {
+            'ru' : {
+                CLOSE   : 'Закрыть',
+                NEXT    : 'Вперед',
+                PREV    : 'Назад'
+            }
         },
-        closeEffect: 'none',
-        closeSpeed: 0
+        baseTpl:
+            '<div class="fancybox-container" role="dialog" tabindex="-1">' +
+                '<div class="fancybox-bg"></div>' +
+                '<div class="fancybox-toolbar">{{buttons}}</div>' +
+                '<div class="fancybox-navigation">{{arrows}}</div>' +
+                '<div class="fancybox-inner">' +
+                    '<div class="fancybox-stage"></div>' +
+                "</div>" +
+            "</div>",
+        btnTpl: {
+            close:
+                '<button data-fancybox-close class="fancybox-button fancybox-button--close" title="{{CLOSE}}"><svg width="23px" height="23px" viewBox="0 0 23 23" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="Pages" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="02_info_gallery_01" transform="translate(-427.000000, -210.000000)" fill="#FFFFFF" fill-rule="nonzero"><g id="multiply-(2)" transform="translate(427.000000, 210.000000)"><polygon id="Shape" points="23 1.04532013 21.9546799 0 11.5 10.4546799 1.04532013 0 0 1.04532013 10.4546799 11.5 0 21.9546799 1.04532013 23 11.5 12.5453201 21.9546799 23 23 21.9546799 12.5453201 11.5"></polygon></g></g></g></svg></button>',
+            arrowLeft:
+                '<a data-fancybox-prev class="fancybox-button fancybox-button--arrow_left" title="{{PREV}}" href="javascript:;"><svg width="71px" height="72px" viewBox="0 0 71 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="Group"><g><rect id="Rectangle-4" stroke="#FFFFFF" transform="translate(35.390873, 36.000000) rotate(-45.000000) translate(-35.390873, -36.000000) " x="10.890873" y="11.5" width="49" height="49"></rect><g id="right-arrow-copy-2" transform="translate(34.890873, 36.500000) rotate(-180.000000) translate(-34.890873, -36.500000) translate(21.390873, 29.000000)" fill="#FFFFFF" fill-rule="nonzero"><polygon id="Shape" points="19.5626038 0.0286259542 18.3619245 1.24311069 23.7049245 6.64734733 0 6.64734733 0 8.36490458 23.7049245 8.36490458 18.3619245 13.769084 19.5626038 14.9835687 26.9554528 7.5060687"></polygon></g></g></g></g></svg></a>',
+            arrowRight:
+                '<a data-fancybox-next class="fancybox-button fancybox-button--arrow_right" title="{{NEXT}}" href="javascript:;"><svg width="71px" height="72px" viewBox="0 0 71 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="Group"><g><rect id="Rectangle-4" stroke="#FFFFFF" transform="translate(35.390873, 36.000000) rotate(-45.000000) translate(-35.390873, -36.000000) " x="10.890873" y="11.5" width="49" height="49"></rect><g id="right-arrow-copy-2" transform="translate(34.890873, 36.500000) rotate(-180.000000) translate(-34.890873, -36.500000) translate(21.390873, 29.000000)" fill="#FFFFFF" fill-rule="nonzero"><polygon id="Shape" points="19.5626038 0.0286259542 18.3619245 1.24311069 23.7049245 6.64734733 0 6.64734733 0 8.36490458 23.7049245 8.36490458 18.3619245 13.769084 19.5626038 14.9835687 26.9554528 7.5060687"></polygon></g></g></g></g></svg></a>'
+        },
+        thumbs: {
+            autoStart: true,
+            hideOnClose: true,
+            axis: 'x'
+        }
     });
 
     $('.services-item-link a').click(function(e) {
@@ -236,6 +262,37 @@ $(document).ready(function() {
         if ($(e.target).parents().filter('.services-menu').length == 0) {
             $('.services-menu').removeClass('open');
         }
+    });
+
+    $('body').on('click', '.window-link', function(e) {
+        var curLink = $(this);
+        var curStart = 0;
+        if (curLink.data('gallery-start')) {
+            curStart = Number(curLink.data('gallery-start') - 1);
+        }
+        windowOpen(curLink.attr('href'), curStart);
+        e.preventDefault();
+    });
+
+    $('body').on('keyup', function(e) {
+        if (e.keyCode == 27) {
+            windowClose();
+        }
+    });
+
+    $(document).click(function(e) {
+        if ($(e.target).hasClass('window')) {
+            windowClose();
+        }
+    });
+
+    $(window).resize(function() {
+        windowPosition();
+    });
+
+    $('body').on('click', '.window-close', function(e) {
+        windowClose();
+        e.preventDefault();
     });
 
 });
@@ -369,4 +426,77 @@ function checkErrors() {
             curField.removeClass('valid');
         }
     });
+}
+
+
+function windowOpen(linkWindow, dataWindow, callbackWindow) {
+    var curPadding = $('.wrapper').width();
+    $('html').addClass('window-open');
+    curPadding = $('.wrapper').width() - curPadding;
+    $('body').css({'margin-right': curPadding + 'px'});
+
+    if ($('.window').length == 0) {
+        $('body').append('<div class="window"><div class="window-loading"></div></div>')
+    }
+
+    $.ajax({
+        type: 'POST',
+        url: linkWindow,
+        dataType: 'html',
+        data: dataWindow,
+        cache: false
+    }).done(function(html) {
+        if ($('.window').length > 0) {
+            $('.window').remove();
+        }
+        $('body').append('<div class="window"><div class="window-loading"></div></div>')
+
+        $('.window').append('<div class="window-container window-container-load"><div class="window-content">' + html + '<a href="#" class="window-close"></a></div></div>')
+
+        if ($('.window-container img').length > 0) {
+            $('.window-container img').each(function() {
+                $(this).attr('src', $(this).attr('src'));
+            });
+            $('.window-container').data('curImg', 0);
+            $('.window-container img').one('load', function() {
+                var curImg = $('.window-container').data('curImg');
+                curImg++;
+                $('.window-container').data('curImg', curImg);
+                if ($('.window-container img').length == curImg) {
+                    $('.window-container').removeClass('window-container-load');
+                    windowPosition();
+                }
+            });
+        } else {
+            $('.window-container').removeClass('window-container-load');
+            windowPosition();
+        }
+
+        if (typeof (callbackWindow) != 'undefined') {
+            callbackWindow.call();
+        }
+
+        $('.window form').each(function() {
+            initForm($(this));
+        });
+    });
+}
+
+function windowPosition() {
+    if ($('.window').length > 0) {
+        $('.window-container').css({'left': '50%', 'margin-left': -$('.window-container').width() / 2});
+
+        $('.window-container').css({'top': '50%', 'margin-top': -$('.window-container').height() / 2, 'padding-bottom': 0});
+        if ($('.window-container').height() > $('.window').height() - 60) {
+            $('.window-container').css({'top': '30px', 'margin-top': 0, 'padding-bottom': 30});
+        }
+    }
+}
+
+function windowClose() {
+    if ($('.window').length > 0) {
+        $('.window').remove();
+        $('html').removeClass('window-open');
+        $('body').css({'margin-right': 0});
+    }
 }
