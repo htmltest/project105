@@ -250,7 +250,7 @@ header {background:#052d63; position:relative; z-index:20; padding:0 0 30px 0}
 
 @media screen and (max-width:767px) {
     header,
-    .header-fixed header {background:rgba(5, 45, 99, 0.93); height:113px; position:fixed; padding:0; left:0; top:0; right:0}
+    .header-fixed header {background:#173c6e; height:113px; position:fixed; padding:0; left:0; top:0; right:0}
 }
 
 .logo {float:left; width:364px; height:68px; background:url(../images/logo.png); position:relative; margin:30px 0 0 0}
@@ -371,6 +371,10 @@ nav ul li:hover ul li.active a {color:#2ba856}
 
 @media screen and (max-width:1169px) {
     .header-fixed nav {padding:27px 0 0 0}
+}
+
+@media screen and (max-width:767px) {
+    .header-fixed.mobile-menu-open nav {padding:0 20px}
 }
 
 .breadcrumbs {font-size:12px; line-height:15px; color:#a6a6a6; margin:20px 0 0 0}
