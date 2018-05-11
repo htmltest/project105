@@ -392,9 +392,13 @@ nav ul li:hover ul li.active a {color:#2ba856}
 .slider-item-text-title {font-size:72px; line-height:80px; font-weight:600; letter-spacing:2px; text-transform:uppercase; color:#fff}
 .slider-item-text-link {padding:67px 0 0 0}
 .slider .slick-prev,
-.slider .slick-next {display:block; position:absolute; z-index:2; top:50%; width:79px; height:79px; border:none; border-radius:0; margin:-40px 0 0 0; padding:0; outline:none; -webkit-appearance:none; cursor:pointer; background:url(../images/slider-arrows.png)}
+.slider .slick-next {display:block; position:absolute; z-index:2; top:50%; width:79px; height:79px; border:none; border-radius:0; margin:-40px 0 0 0; padding:0; outline:none; -webkit-appearance:none; cursor:pointer; background:transparent}
 .slider .slick-prev {left:30px}
-.slider .slick-next {right:30px; background-position:80px top}
+.slider .slick-next {right:30px; transform:rotate(180deg)}
+.slider .slick-prev:hover rect,
+.slider .slick-next:hover rect {stroke:#2ba856}
+.slider .slick-prev:hover polygon,
+.slider .slick-next:hover polygon {fill:#2ba856}
 .slider .slick-dots {z-index:2; font-size:0; line-height:0; letter-spacing:-1px; margin:0; padding:0; list-style:none; position:absolute; bottom:54px; left:0; right:0; text-align:center}
 .slider .slick-dots li {margin:0 0 0 13px; padding:0; display:inline-block; vertical-align:middle}
 .slider .slick-dots li:first-child {margin:0}
