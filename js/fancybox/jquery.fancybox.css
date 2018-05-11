@@ -693,7 +693,7 @@ body.compensate-for-scrollbar {
   bottom: 0;
   height: 132px;
   left: 0;
-  z-index: 99995; }
+  z-index: 99995; text-align: center;}
 
 .fancybox-thumbs-x {
   overflow-x: auto;
@@ -716,6 +716,8 @@ body.compensate-for-scrollbar {
   position: absolute;
   position: relative;
   white-space: nowrap;
+  display: inline-block;
+  vertical-align: top;
   width: 100%; }
 
 .fancybox-thumbs-x > ul {
