@@ -18,7 +18,8 @@
         <script src="js/slick/slick.min.js"></script>
         <script src="js/fancybox/jquery.fancybox.min.js"></script>
         <script src="js/jquery.scrollTo.min.js"></script>
-        <script src="js/jquery.maphilight.min.js"></script>
+        <script src="js/jquery-ui.min.js"></script>
+        <script src="js/modernizr-custom.js"></script>
         <script src="js/tools.js"></script>
 
         <meta name="viewport" content="width=device-width" />
@@ -80,43 +81,45 @@
 
                 <!-- plan -->
                 <div class="plan">
-                    <img src="images/blank.gif" width="1280" height="590" alt="" class="plan-map" usemap="#map" />
-                    <div class="compass"></div>
-                    <map name="map">
-                        <area shape="poly" coords="428,429,427,413,512,353,561,363,563,379,479,441" href="#" alt="" />
-                        <area shape="poly" coords="1141,41,1175,44,1176,53,1156,76,1151,75,1151,73,1122,71,1122,61" href="#" alt="" />
-                        <area shape="poly" coords="536,484,595,502,598,517,523,590,424,591,424,583" href="#" alt="" />
-                        <area shape="poly" coords="348,461,405,473,406,493,278,584,216,567,220,553" href="#" alt="" />
-                        <area shape="poly" coords="652,492,767,522,768,537,750,561,630,532,629,515" href="#" alt="" />
-                        <area shape="poly" coords="470,451,543,469,540,490,526,499,453,481,454,465" href="#" alt="" />
-                        <area shape="poly" coords="793,407,848,419,848,433,788,502,727,487,727,472" href="#" alt="" />
-                        <area shape="poly" coords="880,312,930,319,930,336,865,410,808,399,810,382" href="#" alt="" />
-                        <area shape="poly" coords="639,373,687,386,687,403,612,468,557,454,558,438" href="#" alt="" />
-                        <area shape="poly" coords="405,330,452,338,451,355,369,411,315,400,315,381" href="#" alt="" />
-                        <area shape="poly" coords="536,249,577,255,577,270,485,333,438,322,438,309" href="#" alt="" />
-                        <area shape="poly" coords="299,305,341,317,343,329,249,386,202,373,202,360" href="#" alt="" />
-                        <area shape="poly" coords="440,233,483,240,481,254,386,311,341,301,341,288" href="#" alt="" />
-                        <area shape="poly" coords="553,172,590,179,592,191,517,235,475,226,473,214" href="#" alt="" />
-                        <area shape="poly" coords="639,186,681,192,681,205,607,253,565,247,565,233" href="#" alt="" />
-                        <area shape="poly" coords="677,109,709,111,712,125,621,176,583,169,584,157" href="#" alt="" />
-                        <area shape="poly" coords="726,74,759,81,760,95,727,116,687,112,691,97" href="#" alt="" />
-                        <area shape="poly" coords="640,269,685,276,684,290,596,357,548,347,549,331" href="#" alt="" />
-                        <area shape="poly" coords="738,201,779,208,777,218,709,274,665,265,664,249" href="#" alt="" />
-                        <area shape="poly" coords="816,145,854,153,852,165,799,205,758,199,759,188" href="#" alt="" />
-                        <area shape="poly" coords="747,285,793,294,795,307,714,379,666,369,666,355" href="#" alt="" />
-                        <area shape="poly" coords="831,217,874,223,874,236,813,291,768,283,767,273" href="#" alt="" />
-                        <area shape="poly" coords="902,159,941,163,941,176,891,222,851,214,850,204" href="#" alt="" />
-                        <area shape="poly" coords="948,112,993,117,993,130,955,163,910,154,909,143" href="#" alt="" />
-                        <area shape="poly" coords="882,43,915,46,912,58,869,86,836,85,837,71" href="#" alt="" />
-                        <area shape="poly" coords="928,14,960,17,958,25,921,50,890,47,890,39" href="#" alt="" />
-                        <area shape="poly" coords="956,234,1002,241,1002,254,950,314,898,305,901,291" href="#" alt="" />
-                        <area shape="poly" coords="1018,164,1064,172,1062,186,1018,240,970,232,972,215" href="#" alt="" />
-                        <area shape="poly" coords="1082,111,1112,114,1108,136,1077,173,1047,168,1048,148" href="#" alt="" />
-                        <area shape="poly" coords="1114,70,1150,74,1150,84,1127,111,1088,107,1089,94" href="#" alt="" />
-                    </map>
+                    <div class="plan-bg">
+                        <img src="images/plan.jpg" width="1280" height="590" alt="" />
+                        <div class="plan-compass"></div>
+                        <svg class="plan-scheme" width="1280" height="590" viewBox="0 0 1280 590">
+                            <path d="M 428,429 L 427,413 L 512,353 L 561,363 L 563,379 L 479,441 Z"></path>
+                            <path d="M 1141,41 L 1175,44 L 1176,53 L 1156,76 L 1151,75 L 1151,73 L 1122,71 L 1122,61 Z"></path>
+                            <path d="M 536,484 L 595,502 L 598,517 L 523,590 L 424,591 L 424,583 Z"></path>
+                            <path d="M 348,461 L 405,473 L 406,493 L 278,584 L 216,567 L 220,553 Z"></path>
+                            <path d="M 652,492 L 767,522 L 768,537 L 750,561 L 630,532 L 629,515 Z"></path>
+                            <path d="M 470,451 L 543,469 L 540,490 L 526,499 L 453,481 L 454,465 Z"></path>
+                            <path d="M 793,407 L 848,419 L 848,433 L 788,502 L 727,487 L 727,472 Z"></path>
+                            <path d="M 880,312 L 930,319 L 930,336 L 865,410 L 808,399 L 810,382 Z"></path>
+                            <path d="M 639,373 L 687,386 L 687,403 L 612,468 L 557,454 L 558,438 Z"></path>
+                            <path d="M 405,330 L 452,338 L 451,355 L 369,411 L 315,400 L 315,381 Z"></path>
+                            <path d="M 536,249 L 577,255 L 577,270 L 485,333 L 438,322 L 438,309 Z"></path>
+                            <path d="M 299,305 L 341,317 L 343,329 L 249,386 L 202,373 L 202,360 Z"></path>
+                            <path d="M 440,233 L 483,240 L 481,254 L 386,311 L 341,301 L 341,288 Z"></path>
+                            <path d="M 553,172 L 590,179 L 592,191 L 517,235 L 475,226 L 473,214 Z"></path>
+                            <path d="M 639,186 L 681,192 L 681,205 L 607,253 L 565,247 L 565,233 Z"></path>
+                            <path d="M 677,109 L 709,111 L 712,125 L 621,176 L 583,169 L 584,157 Z"></path>
+                            <path d="M 726,74 L 759,81 L 760,95 L 727,116 L 687,112 L 691,97 Z"></path>
+                            <path d="M 640,269 L 685,276 L 684,290 L 596,357 L 548,347 L 549,331 Z"></path>
+                            <path d="M 738,201 L 779,208 L 777,218 L 709,274 L 665,265 L 664,249 Z"></path>
+                            <path d="M 816,145 L 854,153 L 852,165 L 799,205 L 758,199 L 759,188 Z"></path>
+                            <path d="M 747,285 L 793,294 L 795,307 L 714,379 L 666,369 L 666,355 Z"></path>
+                            <path d="M 831,217 L 874,223 L 874,236 L 813,291 L 768,283 L 767,273 Z"></path>
+                            <path d="M 902,159 L 941,163 L 941,176 L 891,222 L 851,214 L 850,204 Z"></path>
+                            <path d="M 948,112 L 993,117 L 993,130 L 955,163 L 910,154 L 909,143 Z"></path>
+                            <path d="M 882,43 L 915,46 L 912,58 L 869,86 L 836,85 L 837,71 Z"></path>
+                            <path d="M 928,14 L 960,17 L 958,25 L 921,50 L 890,47 L 890,39 Z"></path>
+                            <path d="M 956,234 L 1002,241 L 1002,254 L 950,314 L 898,305 L 901,291 Z"></path>
+                            <path d="M 1018,164 L 1064,172 L 1062,186 L 1018,240 L 970,232 L 972,215 Z"></path>
+                            <path d="M 1082,111 L 1112,114 L 1108,136 L 1077,173 L 1047,168 L 1048,148 Z"></path>
+                            <path d="M 1114,70 L 1150,74 L 1150,84 L 1127,111 L 1088,107 L 1089,94 Z"></path>
+                        </svg>
+                    </div>
 
                     <!-- plan window -->
-                    <div class="plan-window" style="top:373px; left:576px">
+                    <div class="plan-window" data-left="576" data-top="373">
                         <div class="plan-window-title">Помещение 2.21</div>
                         <div class="plan-window-info">
                             <dl>
@@ -134,12 +137,13 @@
                         </div>
                         <div class="plan-window-photo"><img src="files/plan-photo.jpg" alt="" /></div>
                         <div class="plan-window-link"><a href="#" class="btn-3">оставить заявку</a></div>
+                        <a href="#" class="plan-window-close"></a>
                     </div>
                     <!-- plan window END -->
 
                     <!-- plan window -->
-                    <div class="plan-window" style="top:55px; left:1104px">
-                        <div class="plan-window-title">Помещение 2.21</div>
+                    <div class="plan-window" data-left="1104" data-top="55">
+                        <div class="plan-window-title">Помещение 2.22</div>
                         <div class="plan-window-info">
                             <dl>
                                 <dt>общая площадь, м2</dt>
@@ -156,9 +160,9 @@
                         </div>
                         <div class="plan-window-photo"><img src="files/plan-photo.jpg" alt="" /></div>
                         <div class="plan-window-link"><a href="#" class="btn-3">оставить заявку</a></div>
+                        <a href="#" class="plan-window-close"></a>
                     </div>
                     <!-- plan window END -->
-
                 </div>
                 <!-- plan END -->
 

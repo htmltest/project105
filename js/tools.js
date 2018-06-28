@@ -149,57 +149,132 @@ $(document).ready(function() {
         e.preventDefault();
     });
 
-    $('.plan-map').maphilight();
+    $('.plan').each(function() {
+        var planWidthSrc    = Number($('.plan-bg img').attr('width'));
+        var planHeightSrc   = Number($('.plan-bg img').attr('height'));
 
-    var planTimer = null;
-
-    $('body').on('mouseover', '.plan area', function(e) {
-        window.clearTimeout(planTimer);
-        planTimer = null;
-        var curArea = $(this);
-        var curIndex = $('.plan area').index(curArea);
-
-        $('.plan-window').css({'display': 'none'});
-        var curWindow = $('.plan-window').eq(curIndex);
-        if (curWindow.length > 0) {
-            curWindow.css({'display': 'block'});
-            var curPlan = $('.plan');
-            if (curWindow.offset().left + curWindow.outerWidth() > curPlan.offset().left + curPlan.width()) {
-                curWindow.addClass('right');
+        $(window).on('load resize', function() {
+            var curWidth = $('.plan').width();
+            curHeight = curWidth * planHeightSrc / planWidthSrc;
+            if (curHeight < 570) {
+                curHeight = 570;
+                curWidth = curHeight / (planHeightSrc / planWidthSrc);
             }
-            if (curWindow.offset().top < curPlan.offset().top) {
-                curWindow.addClass('top');
+            $('.plan').css({'height': curHeight});
+            $('.plan-bg').css({'left': 0, 'width': curWidth, 'height': curHeight});
+            $('.plan-scheme').css({'width': curWidth, 'height': curHeight});
+
+            $('.plan-window').each(function() {
+                var curWindow = $(this);
+                curWindow.css({'display': 'none', 'left': Number(curWindow.data('left')) * curWidth / planWidthSrc, 'top': Number(curWindow.data('top')) * curWidth / planWidthSrc});
+            });
+        });
+
+        var planTimer = null;
+
+        $('body').on('mouseover', '.plan-scheme path', function(e) {
+            if ($('.plan').width() > 1169) {
+                window.clearTimeout(planTimer);
+                planTimer = null;
+                var curArea = $(this);
+                var curIndex = $('.plan-scheme path').index(curArea);
+
+                $('.plan-window').css({'display': 'none'});
+                var curWindow = $('.plan-window').eq(curIndex);
+                if (curWindow.length > 0) {
+                    curWindow.css({'display': 'block'});
+                    var curPlan = $('.plan');
+                    if (curWindow.offset().left + curWindow.outerWidth() > curPlan.offset().left + curPlan.width()) {
+                        curWindow.addClass('right');
+                    }
+                    if (curWindow.offset().top < curPlan.offset().top) {
+                        curWindow.addClass('top');
+                    }
+                }
+
+                $('.plan-scheme path').removeClass('hover');
+                $('.plan-scheme path').eq(curIndex).addClass('hover');
             }
+        });
+
+        $('body').on('mouseout', '.plan-scheme path', function(e) {
+            if ($('.plan').width() > 1169) {
+                window.clearTimeout(planTimer);
+                planTimer = null;
+                planTimer = window.setTimeout(function() {
+                    $('.plan-scheme path').removeClass('hover');
+                    $('.plan-window').css({'display': 'none'});
+                }, 200);
+            }
+        });
+
+        $('body').on('mouseover', '.plan-window', function(e) {
+            if ($('.plan').width() > 1169) {
+                window.clearTimeout(planTimer);
+                planTimer = null;
+            }
+        });
+
+        $('body').on('mouseout', '.plan-window', function(e) {
+            if ($('.plan').width() > 1169) {
+                window.clearTimeout(planTimer);
+                planTimer = null;
+                planTimer = window.setTimeout(function() {
+                    $('.plan-scheme path').removeClass('hover');
+                    $('.plan-window').css({'display': 'none'});
+                }, 200);
+            }
+        });
+
+        $('.plan-scheme path').click(function(e) {
+            if ($('.plan').width() < 1170) {
+                var curArea = $(this);
+                var curIndex = $('.plan-scheme path').index(curArea);
+
+                $('.plan-window').css({'display': 'none'});
+                var curWindow = $('.plan-window').eq(curIndex);
+                if (curWindow.length > 0) {
+                    curWindow.css({'display': 'block'});
+                }
+
+                $('.plan-scheme path').removeClass('hover');
+                $('.plan-scheme path').eq(curIndex).addClass('hover');
+            }
+        });
+
+        $('body').on('click', '.plan-window-close', function(e) {
+            $('.plan-scheme path').removeClass('hover');
+            $('.plan-window').css({'display': 'none'});
+            e.preventDefault();
+        });
+
+        $(document).click(function(e) {
+            if ($(e.target).parents().filter('.plan').length == 0) {
+                $('.plan-scheme path').removeClass('hover');
+                $('.plan-window').css({'display': 'none'});
+            }
+        });
+
+        if (!Modernizr.touchevents) {
+            $('.plan-bg').draggable({
+                axis: 'x',
+                scroll: true,
+                drag: function(event, ui) {
+                    if (ui.position.left >= 0) {
+                        ui.position.left = 0;
+                    } else {
+                        if ($('.plan-bg').width() + ui.position.left <= $('.plan').width()) {
+                            ui.position.left = $('.plan').width() - $('.plan-bg').width();
+                        }
+                    }
+                }
+            });
+            $(window).on('resize', function() {
+                $('.plan-bg').css({'left': 0});
+            });
+        } else {
+            $('.plan').addClass('touchable');
         }
-
-        $('.plan area').data('maphilight', {"stroke":false, "fade":false, "fillColor":"2ba856", "fillOpacity":0, "alwaysOn":true});
-        $('.plan area').eq(curIndex).data('maphilight', {"stroke":false, "fade":false, "fillColor":"2ba856", "fillOpacity":0.53, "alwaysOn":true});
-        $('.plan-map').maphilight();
-    });
-
-    $('body').on('mouseout', '.plan area', function(e) {
-        window.clearTimeout(planTimer);
-        planTimer = null;
-        planTimer = window.setTimeout(function() {
-            $('.plan area').data('maphilight', {"stroke":false, "fade":false, "fillColor":"2ba856", "fillOpacity":0, "alwaysOn":true});
-            $('.plan-map').maphilight();
-            $('.plan-window').css({'display': 'none'});
-        }, 200);
-    });
-
-    $('body').on('mouseover', '.plan-window', function(e) {
-        window.clearTimeout(planTimer);
-        planTimer = null;
-    });
-
-    $('body').on('mouseout', '.plan-window', function(e) {
-        window.clearTimeout(planTimer);
-        planTimer = null;
-        planTimer = window.setTimeout(function() {
-            $('.plan area').data('maphilight', {"stroke":false, "fade":false, "fillColor":"2ba856", "fillOpacity":0, "alwaysOn":true});
-            $('.plan-map').maphilight();
-            $('.plan-window').css({'display': 'none'});
-        }, 200);
     });
 
     $(window).on('load resize scroll', function() {
@@ -427,7 +502,6 @@ function checkErrors() {
         }
     });
 }
-
 
 function windowOpen(linkWindow, dataWindow, callbackWindow) {
     var curPadding = $('.wrapper').width();
