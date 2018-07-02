@@ -171,29 +171,61 @@ $(document).ready(function() {
         });
 
         var planTimer = null;
+        var territoryTimer = null;
 
         $('body').on('mouseover', '.plan-scheme path', function(e) {
             if ($('.plan').width() > 1169) {
                 window.clearTimeout(planTimer);
                 planTimer = null;
                 var curArea = $(this);
-                var curIndex = $('.plan-scheme path').index(curArea);
+                if (!curArea.hasClass('territory')) {
+                    window.clearTimeout(territoryTimer);
+                    territoryTimer = null;
 
-                $('.plan-window').css({'display': 'none'});
-                var curWindow = $('.plan-window').eq(curIndex);
-                if (curWindow.length > 0) {
-                    curWindow.css({'display': 'block'});
-                    var curPlan = $('.plan');
-                    if (curWindow.offset().left + curWindow.outerWidth() > curPlan.offset().left + curPlan.width()) {
-                        curWindow.addClass('right');
+                    var curIndex = $('.plan-scheme path').index(curArea);
+
+                    $('.plan-window').css({'display': 'none'});
+                    var curWindow = $('.plan-window').eq(curIndex);
+                    if (curWindow.length > 0) {
+                        curWindow.css({'display': 'block'});
+                        var curPlan = $('.plan');
+                        if (curWindow.offset().left + curWindow.outerWidth() > curPlan.offset().left + curPlan.width()) {
+                            curWindow.addClass('right');
+                        }
+                        if (curWindow.offset().top < curPlan.offset().top) {
+                            curWindow.addClass('top');
+                        }
                     }
-                    if (curWindow.offset().top < curPlan.offset().top) {
-                        curWindow.addClass('top');
-                    }
+
+                    $('.plan-scheme path').removeClass('hover');
+                    $('.plan-scheme path').eq(curIndex).addClass('hover');
+                } else {
+                    window.clearTimeout(territoryTimer);
+                    territoryTimer = null;
+                    $('.plan-window').css({'display': 'none'});
+                    $('.plan-scheme path').removeClass('hover');
+
+                    territoryTimer = window.setTimeout(function() {
+                        var curIndex = $('.plan-scheme path').index(curArea);
+
+                        $('.plan-window').css({'display': 'none'});
+                        var curWindow = $('.plan-window').eq(curIndex);
+                        if (curWindow.length > 0) {
+                            curWindow.css({'display': 'block'});
+                            var curPlan = $('.plan');
+                            if (curWindow.offset().left + curWindow.outerWidth() > curPlan.offset().left + curPlan.width()) {
+                                curWindow.addClass('right');
+                            }
+                            if (curWindow.offset().top < curPlan.offset().top) {
+                                curWindow.addClass('top');
+                            }
+                        }
+
+                        $('.plan-scheme path').removeClass('hover');
+                        $('.plan-scheme path').eq(curIndex).addClass('hover');
+                    }, 1000);
+
                 }
-
-                $('.plan-scheme path').removeClass('hover');
-                $('.plan-scheme path').eq(curIndex).addClass('hover');
             }
         });
 
