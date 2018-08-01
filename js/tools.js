@@ -153,7 +153,14 @@ $(document).ready(function() {
         var planWidthSrc    = Number($('.plan-bg img').attr('width'));
         var planHeightSrc   = Number($('.plan-bg img').attr('height'));
 
+
         $(window).on('load resize', function() {
+            resizePlan();
+        });
+        
+        resizePlan();
+        
+        function resizePlan() {
             var curWidth = $('.plan').width();
             curHeight = curWidth * planHeightSrc / planWidthSrc;
             if (curHeight < 570) {
@@ -168,7 +175,7 @@ $(document).ready(function() {
                 var curWindow = $(this);
                 curWindow.css({'display': 'none', 'left': Number(curWindow.data('left')) * curWidth / planWidthSrc, 'top': Number(curWindow.data('top')) * curWidth / planWidthSrc});
             });
-        });
+        }
 
         var planTimer = null;
         var territoryTimer = null;
